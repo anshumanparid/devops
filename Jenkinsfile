@@ -51,7 +51,9 @@ node {
 				rmsg = bat returnStdout: true, script: "${toolbelt} force:source:deploy -x manifest/package.xml -u ${HUB_ORG}"
 			   //rmsg = bat returnStdout: true, script: "${toolbelt} force:mdapi:deploy -d manifest/. -u ${HUB_ORG}"
 				println 'checking if the code comes here'
-				rmsg = bat returnStdout: true, script: "${toolbelt} force:source:deploy -p C:/Users/Admin/Downloads/devops/force-app/main/default/classes -l RunAllTestsInOrg -c -u ${HUB_ORG}"
+				rmsg = bat returnStdout: true, script: "${toolbelt} force:source:deploy -p C:/Users/Admin/Downloads/devops/force-app/main/default/classes -u ${HUB_ORG}"
+				printIn 'checking code test and coverage'
+				rmsg = bat returnStdout: true, script: "${toolbelt} force:source:deploy -m ApexClass -l RunAllTestsInOrg -c -u ${HUB_ORG}"
 			  
 			}
 			  
